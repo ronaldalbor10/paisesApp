@@ -14,6 +14,6 @@ export class PaisService {
 
   buscarPais(termino:string):Observable<PaisInterface[]>{
     const url:string = `${this.api_url}/name/${termino}`;
-    return this.http.get<PaisInterface[]>( url );
+    return this.http.get<PaisInterface[]>( url ); 
   }
 }
