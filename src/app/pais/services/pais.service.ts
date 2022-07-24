@@ -16,4 +16,9 @@ export class PaisService {
     const url:string = `${this.api_url}/name/${termino}`;
     return this.http.get<PaisInterface[]>( url ); 
   }
+
+  buscarCaital(termino:string):Observable<PaisInterface[]>{
+    const url:string = `${this.api_url}/capital/${termino}`;
+    return this.http.get<PaisInterface[]>( url ); 
+  }
 }
