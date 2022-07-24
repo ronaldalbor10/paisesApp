@@ -35,4 +35,10 @@ export class PorPaisComponent  {
     }); 
   }
 
+
+  sugerencia(termino:string){
+    this.hayError=false;
+    
+  }
+
 }
