@@ -2,16 +2,28 @@
 <hr>
 <h5>Seleccione la region:</h5>
 <div class="row">
-    <div class="col">
-        <button *ngFor="let region of regiones"
-                class="btn btn-outline-primary"
-                [ngClass]="{
+    <!-- Formas de tratar la manipolación de clases -->
+    <!-- [class.btn-primary]="region === regionActiva" -->
+    <!--
+        [ngClass]="{
                     'btn-primary': region === regionActiva,
                     'btn-outline': region !== regionActiva
                 }"
+    -->
+    <!-- [class]="(region === regionActiva) ? 'btn btn-primary':'btn btn-outline-primary'" -->
+    <div class="col">
+        <button *ngFor="let region of regiones"
+                [class]="getClassCSS(region)"
+                
                 (click)="activarRegion(region)">
-            {{region}}
+            {{region | titlecase}}
         </button>
-        <!-- [class.btn-primary]="region === regionActiva" -->
+        
+    </div>
+</div>
+
+<div *ngIf="paises.length>0" class="row">
+    <div class="col">
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
     </div>
 </div>

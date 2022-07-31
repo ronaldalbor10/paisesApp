@@ -26,4 +26,9 @@ export class PaisService {
     const url:string = `${this.api_url}/alpha/${id}`;
     return this.http.get<PaisInterface>( url ); 
   }
+
+  PaisesPorRegion(region:string):Observable<PaisInterface[]>{
+    const url:string = `${this.api_url}/region/${region}`;
+    return this.http.get<PaisInterface[]>( url );
+  }
 }
