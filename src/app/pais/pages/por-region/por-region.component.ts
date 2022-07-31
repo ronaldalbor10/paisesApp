@@ -31,29 +31,17 @@ export class PorRegionComponent implements OnInit {
   }
 
   activarRegion(region:string){
+
+      if(region === this.regionActiva) {return;}
       this.regionActiva = region;
-
+      this.paises =[];
       //Cargar tabla de paises con la informacion de paises de la region seleccionada
-      this.buscar(region);
+      this.paisService.PaisesPorRegion(region)
+      .subscribe(paises => this.paises = paises)  
+      
+      
   }
 
-  buscar(region:string){
-    
-    console.log(region);
-    this.paisService.PaisesPorRegion(region)
-    .subscribe({
-      next:(paises) => {
-          
-          console.log(paises);
-          this.paises = paises;
-      },
-      error: (err)=>{
-        this.paises = [];
-        console.log('Error');
-          console.log(err);
-      }
-    }); 
-  }
 
 }
 
